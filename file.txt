@@ -1,0 +1,21 @@
+FastAPI: It's a modern, fast (high-performance) Python web framework for building APIs. It's designed to be easy to use and learn, and it's built on top of Starlette and Pydantic.
+SQLAlchemy: It's an SQL toolkit and Object-Relational Mapping (ORM) library for Python. We use it to interact with the PostgreSQL database.
+Pydantic: It's a data validation library that FastAPI uses for request body parsing and validation.
+Dependency Injection: FastAPI uses this pattern to manage dependencies like database sessions. That's what the Depends(get_db) is doing in our endpoint functions.
+To run this project:
+
+Make sure you have PostgreSQL installed and running.
+Create a new database for this project.
+Update the SQLALCHEMY_DATABASE_URL in main.py with your database credentials.
+Run the application using python main.py.
+The API will now be running at http://localhost:8000. You can test it using curl or a tool like Postman.
+
+To create a shortened URL:
+
+curl -X POST "http://localhost:8000/shorten" -H "Content-Type: application/json" -d '{"url":"https://example.com"}'
+To get the original URL:
+
+curl "http://localhost:8000/{short_code}"
+Replace {short_code} with the actual short code you received.
+
+This implementation covers the basic requirements of the task. It demonstrates the use of FastAPI, PostgreSQL (via SQLAlchemy), and API design. The README.md file explains the project and how to run it.
